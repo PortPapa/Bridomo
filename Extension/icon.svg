@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="16" fill="#0d1117"/>
+  <rect x="4" y="4" width="120" height="120" rx="12" fill="none" stroke="#30363d" stroke-width="2"/>
+  <text x="64" y="72" text-anchor="middle" font-family="Consolas,monospace" font-weight="700" font-size="42" fill="#58a6ff">LTI</text>
+  <circle cx="100" cy="28" r="8" fill="#3fb950"/>
+</svg>

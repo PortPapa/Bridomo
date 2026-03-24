@@ -1,0 +1,23 @@
+## .NET
+bin/
+obj/
+publish/
+Releases/
+
+## IDE
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build
+*.nupkg
+*.snupkg
+[Dd]ebug/
+[Rr]elease/
+
+## OS
+Thumbs.db
+desktop.ini
+.DS_Store

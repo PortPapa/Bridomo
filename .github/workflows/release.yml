@@ -1,0 +1,60 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: ver
+        shell: bash
+        run: echo "version=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Publish
+        run: dotnet publish LocalTrafficInspector.csproj -c Release --self-contained -r win-x64 -o ./publish
+
+      - name: Install vpk CLI
+        run: dotnet tool install -g vpk
+
+      - name: Download previous release (delta용)
+        run: vpk download github --repoUrl https://github.com/${{ github.repository }} --token ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Package
+        run: >
+          vpk pack
+          --packId LocalTrafficInspector
+          --packVersion ${{ steps.ver.outputs.version }}
+          --packDir ./publish
+          --mainExe LocalTrafficInspector.exe
+          --packTitle "Local Traffic Inspector"
+          --icon app_icon.ico
+          --shortcuts Desktop,StartMenuRoot
+
+      - name: Upload to GitHub Releases
+        run: >
+          vpk upload github
+          --repoUrl https://github.com/${{ github.repository }}
+          --token ${{ secrets.GITHUB_TOKEN }}
+          --publish
+          --releaseName "Local Traffic Inspector v${{ steps.ver.outputs.version }}"
+          --tag ${{ github.ref_name }}

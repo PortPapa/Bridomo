@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><body>
+<canvas id="c128" width="128" height="128"></canvas>
+<canvas id="c48" width="48" height="48"></canvas>
+<canvas id="c16" width="16" height="16"></canvas>
+<script>
+function draw(canvas, size) {
+  const ctx = canvas.getContext('2d');
+  const s = size / 128;
+  
+  // Background
+  ctx.fillStyle = '#0d1117';
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size, size, 16 * s);
+  ctx.fill();
+  
+  // Border
+  ctx.strokeStyle = '#30363d';
+  ctx.lineWidth = 2 * s;
+  ctx.beginPath();
+  ctx.roundRect(4 * s, 4 * s, (size - 8 * s), (size - 8 * s), 12 * s);
+  ctx.stroke();
+  
+  // Text "LTI"
+  ctx.fillStyle = '#58a6ff';
+  ctx.font = `bold ${42 * s}px Consolas, monospace`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('LTI', size / 2, size / 2);
+  
+  // Green dot
+  ctx.fillStyle = '#3fb950';
+  ctx.beginPath();
+  ctx.arc(100 * s, 28 * s, 8 * s, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Download
+  const link = document.createElement('a');
+  link.download = `icon${size}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+setTimeout(() => {
+  draw(document.getElementById('c128'), 128);
+  setTimeout(() => draw(document.getElementById('c48'), 48), 500);
+  setTimeout(() => draw(document.getElementById('c16'), 16), 1000);
+}, 100);
+</script>
+</body></html>

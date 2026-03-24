@@ -1,0 +1,83 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- 툴바 -->
+    <sys:String x:Key="Str_Start">Run</sys:String>
+    <sys:String x:Key="Str_Stop">Stop</sys:String>
+    <sys:String x:Key="Str_Clear">초기화</sys:String>
+    <sys:String x:Key="Str_ExportJson">JSON 내보내기</sys:String>
+    <sys:String x:Key="Str_ExportTxt">TXT 내보내기</sys:String>
+    <sys:String x:Key="Str_Address">주소:</sys:String>
+    <sys:String x:Key="Str_Port">포트:</sys:String>
+    <sys:String x:Key="Str_Https">HTTPS</sys:String>
+    <sys:String x:Key="Str_JsonPretty">JSON 정렬</sys:String>
+    <sys:String x:Key="Str_CertInfo">인증서 정보</sys:String>
+    <sys:String x:Key="Str_Language">언어</sys:String>
+
+    <!-- 필터 -->
+    <sys:String x:Key="Str_Search">검색:</sys:String>
+    <sys:String x:Key="Str_Method">메서드:</sys:String>
+    <sys:String x:Key="Str_Status">상태코드:</sys:String>
+    <sys:String x:Key="Str_SearchTooltip">Host 또는 URL로 검색</sys:String>
+    <sys:String x:Key="Str_StatusTooltip">200, 404, 2xx, 4xx, 5xx</sys:String>
+
+    <!-- DataGrid 헤더 -->
+    <sys:String x:Key="Str_ColTime">시간</sys:String>
+    <sys:String x:Key="Str_ColMethod">메서드</sys:String>
+    <sys:String x:Key="Str_ColHost">호스트</sys:String>
+    <sys:String x:Key="Str_ColUrl">URL</sys:String>
+    <sys:String x:Key="Str_ColStatus">상태</sys:String>
+    <sys:String x:Key="Str_ColType">타입</sys:String>
+    <sys:String x:Key="Str_ColDuration">소요시간</sys:String>
+    <sys:String x:Key="Str_ColProto">프로토콜</sys:String>
+
+    <!-- 탭 -->
+    <sys:String x:Key="Str_TabOverview">요약</sys:String>
+    <sys:String x:Key="Str_TabReqHeaders">요청 헤더</sys:String>
+    <sys:String x:Key="Str_TabReqBody">요청 본문</sys:String>
+    <sys:String x:Key="Str_TabRespHeaders">응답 헤더</sys:String>
+    <sys:String x:Key="Str_TabRespBody">응답 본문</sys:String>
+
+    <!-- 상태 메시지 -->
+    <sys:String x:Key="Str_ProxyRunning">프록시 실행 중:</sys:String>
+    <sys:String x:Key="Str_ProxyStopped">프록시 중지됨</sys:String>
+    <sys:String x:Key="Str_Total">전체:</sys:String>
+    <sys:String x:Key="Str_NoSessionsToExport">내보낼 세션이 없습니다.</sys:String>
+    <sys:String x:Key="Str_ExportComplete">개 세션을 내보냈습니다.</sys:String>
+    <sys:String x:Key="Str_ExportFailed">내보내기 실패:</sys:String>
+    <sys:String x:Key="Str_ProxyStartFailed">프록시 시작 실패:</sys:String>
+    <sys:String x:Key="Str_CertInstalled">인증서: 설치됨</sys:String>
+    <sys:String x:Key="Str_CertNotInstalled">인증서: 미설치</sys:String>
+
+    <!-- 인증서 대화상자 -->
+    <sys:String x:Key="Str_CertTitle">HTTPS 인증서 상태</sys:String>
+    <sys:String x:Key="Str_CertInstalledMsg">HTTPS 인증서가 설치되어 있습니다. HTTPS 트래픽 캡처가 가능합니다.</sys:String>
+    <sys:String x:Key="Str_CertNotInstalledMsg">HTTPS 인증서가 설치되어 있지 않습니다.
+
+HTTPS 트래픽을 캡처하려면:
+1. HTTPS 모드로 프록시를 시작하면 인증서가 자동 생성됩니다.
+2. 시스템에서 인증서 신뢰 확인 팝업이 나타나면 '예'를 선택하세요.
+3. 브라우저를 재시작하세요.
+
+인증서는 로컬 개발/디버깅 용도로만 사용됩니다.</sys:String>
+    <sys:String x:Key="Str_CertInstallAsk">지금 인증서를 설치하시겠습니까?</sys:String>
+    <sys:String x:Key="Str_CertUninstallAsk">인증서를 제거하시겠습니까?</sys:String>
+
+    <!-- 크롬 -->
+    <sys:String x:Key="Str_LaunchChrome">Chrome 실행</sys:String>
+    <sys:String x:Key="Str_ChromeNotFound">Chrome을 찾을 수 없습니다. 직접 설치 경로를 확인해주세요.</sys:String>
+    <sys:String x:Key="Str_ChromeLaunchFailed">Chrome 실행 실패:</sys:String>
+
+    <!-- DOM / 매크로 -->
+    <sys:String x:Key="Str_HideJunk">광고/트래킹 숨김</sys:String>
+    <sys:String x:Key="Str_TabDomEvents">DOM 이벤트</sys:String>
+    <sys:String x:Key="Str_ExportMacro">매크로 Export</sys:String>
+    <sys:String x:Key="Str_NoDomEvents">기록된 DOM 이벤트가 없습니다.</sys:String>
+    <sys:String x:Key="Str_DomColTime">시간</sys:String>
+    <sys:String x:Key="Str_DomColType">타입</sys:String>
+    <sys:String x:Key="Str_DomColSummary">요약</sys:String>
+    <sys:String x:Key="Str_DomColUrl">URL</sys:String>
+    <sys:String x:Key="Str_DomColMatch">API 매칭</sys:String>
+
+</ResourceDictionary>

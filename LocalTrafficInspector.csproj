@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>app_icon.ico</ApplicationIcon>
+    <AssemblyName>LocalTrafficInspector</AssemblyName>
+    <RootNamespace>LocalTrafficInspector</RootNamespace>
+    <Version>1.0.0</Version>
+    <StartupObject>LocalTrafficInspector.App</StartupObject>
+  </PropertyGroup>
+
+  <!-- App.xaml: 커스텀 Main() 사용을 위해 ApplicationDefinition → Page 변경 -->
+  <ItemGroup>
+    <ApplicationDefinition Remove="App.xaml" />
+    <Page Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 프록시 엔진: HTTP/HTTPS 요청을 가로채는 핵심 라이브러리 -->
+    <PackageReference Include="Titanium.Web.Proxy" Version="3.1.1397" />
+
+    <!-- DI 컨테이너: 서비스/뷰모델 의존성 주입 -->
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+
+    <!-- JSON 직렬화: 내보내기 및 설정 저장용 (.NET 8 내장이지만 명시) -->
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+
+    <!-- 설치 프로그램 + 자동 업데이트 프레임워크 -->
+    <PackageReference Include="Velopack" Version="0.0.1298" />
+  </ItemGroup>
+
+</Project>
