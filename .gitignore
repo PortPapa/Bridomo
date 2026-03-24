@@ -17,6 +17,9 @@ Releases/
 [Dd]ebug/
 [Rr]elease/
 
+## Installer
+installer-output/
+
 ## OS
 Thumbs.db
 desktop.ini

@@ -2,8 +2,6 @@ using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using LocalTrafficInspector.Services;
 using LocalTrafficInspector.ViewModels;
-using Velopack;
-
 namespace LocalTrafficInspector;
 
 public partial class App : Application
@@ -13,9 +11,6 @@ public partial class App : Application
     [STAThread]
     private static void Main(string[] args)
     {
-        // Velopack: 설치/업데이트/제거 훅 처리 (반드시 첫 줄)
-        VelopackApp.Build().Run();
-
         var app = new App();
         app.InitializeComponent();
         app.Run();

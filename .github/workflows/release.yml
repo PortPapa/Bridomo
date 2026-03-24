@@ -32,29 +32,14 @@ jobs:
       - name: Publish
         run: dotnet publish LocalTrafficInspector.csproj -c Release --self-contained -r win-x64 -o ./publish
 
-      - name: Install vpk CLI
-        run: dotnet tool install -g vpk
-
-      - name: Download previous release (delta용)
-        run: vpk download github --repoUrl https://github.com/${{ github.repository }} --token ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
-
-      - name: Package
-        run: >
-          vpk pack
-          --packId Bridomo
-          --packVersion ${{ steps.ver.outputs.version }}
-          --packDir ./publish
-          --mainExe LocalTrafficInspector.exe
-          --packTitle "Bridomo"
-          --icon app_icon.ico
-          --shortcuts Desktop,StartMenuRoot
+      - name: Build Installer (Inno Setup)
+        uses: Minionguyjpro/Inno-Setup-Action@v1.2.2
+        with:
+          path: installer/BridomoSetup.iss
+          options: /DMyAppVersion=${{ steps.ver.outputs.version }}
 
       - name: Upload to GitHub Releases
-        run: >
-          vpk upload github
-          --repoUrl https://github.com/${{ github.repository }}
-          --token ${{ secrets.GITHUB_TOKEN }}
-          --publish
-          --releaseName "Bridomo v${{ steps.ver.outputs.version }}"
-          --tag ${{ github.ref_name }}
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Bridomo v${{ steps.ver.outputs.version }}"
+          files: installer-output/Bridomo-Setup-${{ steps.ver.outputs.version }}.exe
