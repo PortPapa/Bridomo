@@ -51,7 +51,7 @@ public class ExportService
     {
         var sb = new StringBuilder();
         sb.AppendLine("═══════════════════════════════════════════════════");
-        sb.AppendLine("  Local Traffic Inspector - Export");
+        sb.AppendLine("  Bridomo - Export");
         sb.AppendLine($"  Generated: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
         sb.AppendLine("═══════════════════════════════════════════════════");
         sb.AppendLine();

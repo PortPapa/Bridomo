@@ -42,11 +42,11 @@ jobs:
       - name: Package
         run: >
           vpk pack
-          --packId LocalTrafficInspector
+          --packId Bridomo
           --packVersion ${{ steps.ver.outputs.version }}
           --packDir ./publish
           --mainExe LocalTrafficInspector.exe
-          --packTitle "Local Traffic Inspector"
+          --packTitle "Bridomo"
           --icon app_icon.ico
           --shortcuts Desktop,StartMenuRoot
 
@@ -56,5 +56,5 @@ jobs:
           --repoUrl https://github.com/${{ github.repository }}
           --token ${{ secrets.GITHUB_TOKEN }}
           --publish
-          --releaseName "Local Traffic Inspector v${{ steps.ver.outputs.version }}"
+          --releaseName "Bridomo v${{ steps.ver.outputs.version }}"
           --tag ${{ github.ref_name }}
